@@ -2,15 +2,14 @@ import { Network } from "@ethersproject/networks";
 
 type TChainAttributes = {
   name: string;
-  // color | [lightThemeColor, darkThemeColor]
-  color: string | [string, string];
+  color: string;
   chainId: number;
 };
 
 export const NETWORKS: Record<string, TChainAttributes> = {
   localhost: {
     name: "localhost",
-    color: ["#666666", "#bbbbbb"],
+    color: "#666",
     chainId: 31337,
   },
   mainnet: {
@@ -75,17 +74,17 @@ export const NETWORKS: Record<string, TChainAttributes> = {
   },
   localAvalanche: {
     name: "localAvalanche",
-    color: ["#666666", "#bbbbbb"],
+    color: "#666666",
     chainId: 43112,
   },
   fujiAvalanche: {
     name: "fujiAvalanche",
-    color: ["#666666", "#bbbbbb"],
+    color: "#666666",
     chainId: 43113,
   },
   mainnetAvalanche: {
     name: "mainnetAvalanche",
-    color: ["#666666", "#bbbbbb"],
+    color: "#666666",
     chainId: 43114,
   },
   testnetHarmony: {
@@ -159,5 +158,9 @@ export function getBlockExplorerTxLink(network: Network, txnHash: string) {
   return blockExplorerTxURL;
 }
 
-export const getNetworkDetailsByChainId = (chainId: number) =>
-  Object.values(NETWORKS).find(val => val.chainId === chainId);
+export const getNetworkDetailsByChainId = (chainId: number) => {
+  const networkName = Object.keys(NETWORKS).find(network => NETWORKS[network]?.chainId === chainId);
+
+  if (!networkName) return;
+  return NETWORKS[networkName];
+};

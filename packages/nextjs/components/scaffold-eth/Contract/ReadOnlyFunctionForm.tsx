@@ -1,7 +1,7 @@
 import { FunctionFragment } from "ethers/lib/utils";
 import { useState } from "react";
 import { useContractRead } from "wagmi";
-import { displayTxResult } from "./utilsDisplay";
+import { tryToDisplay } from "./utilsDisplay";
 import InputUI from "./InputUI";
 import { getFunctionInputKey } from "./utilsContract";
 import { toast } from "~~/utils/scaffold-eth";
@@ -25,7 +25,7 @@ export const ReadOnlyFunctionForm = ({ functionFragment, contractAddress }: TRea
   const keys = Object.keys(form);
 
   const {
-    data: result,
+    data: Result,
     isFetching,
     refetch,
   } = useContractRead({
@@ -57,23 +57,15 @@ export const ReadOnlyFunctionForm = ({ functionFragment, contractAddress }: TRea
     <div className="flex flex-col gap-3">
       <p className="font-medium my-0 break-words">{functionFragment.name}</p>
       {inputs}
-      <div className="flex justify-between gap-2">
-        <div className="flex-grow">
-          {result ? (
-            <span className="block bg-secondary rounded-3xl text-sm px-4 py-1.5">
-              <strong>Result</strong>: {displayTxResult(result)}
-            </span>
-          ) : null}
-        </div>
-        <button
-          className={`btn btn-secondary btn-sm ${isFetching ? "loading" : ""}`}
-          onClick={async () => {
-            await refetch();
-          }}
-        >
-          Read 📡
-        </button>
-      </div>
+      <button
+        className={`btn btn-secondary btn-sm self-end ${isFetching ? "loading" : ""}`}
+        onClick={async () => {
+          await refetch();
+        }}
+      >
+        Read 📡
+      </button>
+      <span className="break-all block">{tryToDisplay(Result)}</span>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import { FunctionFragment } from "ethers/lib/utils";
 import { Dispatch, SetStateAction, useState } from "react";
-import { useContractWrite, useWaitForTransaction } from "wagmi";
+import { useContractWrite } from "wagmi";
+import { tryToDisplay } from "./utilsDisplay";
 import InputUI from "./InputUI";
-import TxReceipt from "./TxReceipt";
 import { getFunctionInputKey, getParsedEthersError } from "./utilsContract";
 import { TxValueInput } from "./utilsComponents";
 import { useTransactor } from "~~/hooks/scaffold-eth";
@@ -66,10 +66,6 @@ export const WriteOnlyFunctionForm = ({
     }
   };
 
-  const { data: txResult } = useWaitForTransaction({
-    hash: result?.hash,
-  });
-
   // TODO use `useMemo` to optimize also update in ReadOnlyFunctionForm
   const inputs = functionFragment.inputs.map((input, inputIndex) => {
     const key = getFunctionInputKey(functionFragment, input, inputIndex);
@@ -85,17 +81,16 @@ export const WriteOnlyFunctionForm = ({
     );
   });
 
+  // TODO prettify json result
   return (
     <div className="flex flex-col gap-3">
       <p className="font-medium my-0 break-words">{functionFragment.name}</p>
       {inputs}
       {functionFragment.payable ? <TxValueInput setTxValue={setTxValue} txValue={txValue} /> : null}
-      <div className="flex justify-between gap-2">
-        <div className="flex-grow">{txResult ? <TxReceipt txResult={txResult} /> : null}</div>
-        <button className={`btn btn-secondary btn-sm ${isLoading ? "loading" : ""}`} onClick={handleWrite}>
-          Send 💸
-        </button>
-      </div>
+      <button className={`btn btn-secondary btn-sm self-end ${isLoading ? "loading" : ""}`} onClick={handleWrite}>
+        Send 💸
+      </button>
+      <span className="break-all block">{tryToDisplay(result)}</span>
     </div>
   );
 };

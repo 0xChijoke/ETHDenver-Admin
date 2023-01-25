@@ -2,7 +2,7 @@ import { FunctionFragment } from "ethers/lib/utils";
 import React, { Dispatch, ReactElement, SetStateAction } from "react";
 import { AddressInput } from "~~/components/scaffold-eth";
 
-import { StringToBytesConverter, StringToBytes32Converter, UintToEtherConverter } from "./utilsDisplay";
+import { ConvertStringToBytes, ConvertStringToBytes32, ConvertUintToEther } from "./utilsDisplay";
 
 type ParamType = {
   name: string | null;
@@ -25,15 +25,15 @@ const InputUI = ({ setForm, form, stateObjectKey, paramType }: TInputUIProps) =>
 
   switch (paramType.type) {
     case "bytes32":
-      inputSuffix = <StringToBytes32Converter setForm={setForm} form={form} stateObjectKey={stateObjectKey} />;
+      inputSuffix = <ConvertStringToBytes32 setForm={setForm} form={form} stateObjectKey={stateObjectKey} />;
       break;
 
     case "bytes":
-      inputSuffix = <StringToBytesConverter setForm={setForm} form={form} stateObjectKey={stateObjectKey} />;
+      inputSuffix = <ConvertStringToBytes setForm={setForm} form={form} stateObjectKey={stateObjectKey} />;
       break;
 
     case "uint256":
-      inputSuffix = <UintToEtherConverter setForm={setForm} form={form} stateObjectKey={stateObjectKey} />;
+      inputSuffix = <ConvertUintToEther setForm={setForm} form={form} stateObjectKey={stateObjectKey} />;
       break;
   }
 
