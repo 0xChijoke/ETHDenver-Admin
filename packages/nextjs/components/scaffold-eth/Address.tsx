@@ -67,7 +67,7 @@ export default function Address({
   }
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center justify-center">
       <div className="flex-shrink-0">
         <Blockies
           className="mx-auto rounded-md"
@@ -80,7 +80,7 @@ export default function Address({
         <span className="ml-1.5 text-lg font-normal text-gray-900 dark:text-gray-400">{displayAddress}</span>
       ) : (
         <a
-          className="ml-1.5 text-lg font-normal text-gray-900 dark:text-gray-400"
+          className="ml-1.5 text-lg font-normal text-gray-900"
           target="_blank"
           href={explorerLink}
           rel="noopener noreferrer"
@@ -89,10 +89,7 @@ export default function Address({
         </a>
       )}
       {addressCopied ? (
-        <CheckCircleIcon
-          className="ml-1.5 text-xl font-normal text-sky-600 h-5 w-5 cursor-pointer"
-          aria-hidden="true"
-        />
+        <CheckCircleIcon className="ml-1.5 text-xl font-normal text-black h-5 w-5 cursor-pointer" aria-hidden="true" />
       ) : (
         <CopyToClipboard
           text={address}
@@ -104,7 +101,7 @@ export default function Address({
           }}
         >
           <DocumentDuplicateIcon
-            className="ml-1.5 text-xl font-normal text-sky-600 h-5 w-5 cursor-pointer"
+            className="ml-1.5 text-xl font-normal text-black h-5 w-5 cursor-pointer"
             aria-hidden="true"
           />
         </CopyToClipboard>

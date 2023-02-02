@@ -2,7 +2,6 @@ import React from "react";
 import { CurrencyDollarIcon } from "@heroicons/react/24/outline";
 import { useAppStore } from "~~/services/store/store";
 import { HeartIcon } from "@heroicons/react/24/outline";
-import SwitchTheme from "./SwitchTheme";
 
 /**
  * Site footer
@@ -24,7 +23,7 @@ export default function Footer() {
       </div>
       <div>
         <ul className="menu menu-horizontal px-1">
-          <div className="flex items-center gap-2 text-sm">
+          <div className="flex items-center text-gray-200 gap-2 text-sm">
             <div>
               <a
                 href="https://github.com/scaffold-eth/se-2"
@@ -62,9 +61,7 @@ export default function Footer() {
         </ul>
       </div>
       <div className="mr-4 text-sm">
-        <div className="fixed m-4 bottom-0 right-0">
-          <SwitchTheme />
-        </div>
+        <div className="fixed m-4 bottom-0 right-0">{/* <SwitchTheme /> */}</div>
       </div>
     </div>
   );
