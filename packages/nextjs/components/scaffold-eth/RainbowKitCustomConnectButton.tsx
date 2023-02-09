@@ -80,7 +80,7 @@ export default function RainbowKitCustomConnectButton() {
                   </button>
 
                   <div className="flex justify-center items-center border-1 rounded-lg">
-                    <div className="hidden sm:inline-block">
+                    <div className="hidden text-white sm:inline-block">
                       <Balance address={account.address} />
                     </div>
                     <button onClick={openAccountModal} type="button" className="btn btn-primary btn-sm">

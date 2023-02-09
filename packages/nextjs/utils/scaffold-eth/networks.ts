@@ -7,6 +7,11 @@ type TChainAttributes = {
 };
 
 export const NETWORKS: Record<string, TChainAttributes> = {
+  zkSyncTestnet: {
+    name: "zkSync Testnet",
+    color: "#4409f6",
+    chainId: 280,
+  },
   localhost: {
     name: "localhost",
     color: "#666",

@@ -3,7 +3,8 @@ import Head from "next/head";
 import React from "react";
 import Balance from "~~/components/Balance";
 import Search from "~~/components/Search";
-import Orders from "~~/components/Orders";
+// import Orders from "~~/components/Orders";
+import Vendors from "~~/components/Vendors";
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +17,8 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow">
         <Balance />
         <Search />
-        <Orders />
+        <Vendors />
+        {/* <Orders /> */}
       </div>
     </>
   );

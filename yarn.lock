@@ -1470,6 +1470,7 @@ __metadata:
     "@types/react-copy-to-clipboard": ^5.0.4
     "@typescript-eslint/eslint-plugin": ^5.39.0
     "@uniswap/sdk": ^3.0.3
+    "@wagmi/chains": ^0.2.6
     autoprefixer: ^10.4.12
     daisyui: ^2.31.0
     eslint: ^8.15.0
@@ -1491,6 +1492,7 @@ __metadata:
     use-debounce: ^8.0.4
     usehooks-ts: ^2.7.2
     wagmi: ^0.6.0
+    zksync-web3: ^0.12.5
     zustand: ^4.1.2
   languageName: unknown
   linkType: soft
@@ -2382,6 +2384,18 @@ __metadata:
   peerDependencies:
     "@vanilla-extract/css": ^1.0.0
   checksum: e72407ca6afad27c9e609ec3b23f8216c17374f40728ed8f8fc4decc0ea65216d9fb0f74daf31b846dffc7a90c0fe8f40a16d0b468c8f81a0600eea570a437bf
+  languageName: node
+  linkType: hard
+
+"@wagmi/chains@npm:^0.2.6":
+  version: 0.2.6
+  resolution: "@wagmi/chains@npm:0.2.6"
+  peerDependencies:
+    typescript: ">=4.9.4"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 2c52e7725757ad7b58df522a6db9b6b628ee45d43f75842fe3f7e13eab953cea32808d90a1be37f15874958309fcb78d9d65d564516cccb719099ccb68651002
   languageName: node
   linkType: hard
 
