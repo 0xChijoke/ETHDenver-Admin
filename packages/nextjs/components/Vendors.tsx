@@ -64,9 +64,9 @@ const Vendors = () => {
   return (
     <div className="w-full p-4 flex flex-col rounded-2xl bg-blue-900 text-white min-h-full">
       <div className="w-full ">
-        <p>Buidl contract Balance: BUIDL {buidlTokenBalance || 0}</p>
-        <p>Vendor1 Balance: BUIDL {vendor1Balance || 0}</p>
-        <p>Vendor2 Balance: BUIDL {vendor2Balance || 0}</p>
+        <p>Buidl contract Balance: BUIDL {buidlTokenBalance}</p>
+        <p>Vendor1 Balance: BUIDL {vendor1Balance}</p>
+        <p>Vendor2 Balance: BUIDL {vendor2Balance}</p>
       </div>
     </div>
   );
