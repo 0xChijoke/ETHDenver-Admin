@@ -1,5 +1,14 @@
 # Scaffold-Eth 2 & zkSync
 
+This is a demo for a real-world usecase and demostrates how we can use a simple and intuitive interface for the management of onchain activities.
+This panel is used for managing and monitoring vendor addresses for the purpose of record keeping, accounting and cashing out vendors for on-chain transactions.
+
+This build uses the following tech stack:
+- Scaffold-Eth-2
+- Firestore
+- zkSync
+
+
 ⚠️ This project is currently under active development. Things might break. Feel free to check the open issues & create new ones.
 
 *The best way to get started building decentralized applications on Ethereum!*
@@ -17,7 +26,7 @@ A new version of [scaffold-eth](https://github.com/scaffold-eth/scaffold-eth/tre
 1. Clone this repo & install dependencies
 
 ```
-git clone https://github.com/scaffold-eth/se-2.git
+git clone https://github.com/EngrGord/ETHDenver-Admin.git
 cd se-2
 yarn install
 ```
@@ -48,37 +57,4 @@ Run smart contract test with `yarn hardhat:test`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit your deployment scripts in `packages/hardhat/deploy`
 
-## Deploying Smart Contracts
-Once you are ready to deploy your smart contracts, there are a few things you need to adjust.
-
-1. Select the network
-
-By default, ```yarn deploy``` will deploy the contract to the local network. You can change the defaultNetwork in `packages/hardhat/hardhat.config.js.` You could also simply run ```yarn deploy --network target_network``` to deploy to another network.
-
-Check the `hardhat.config.js` for the networks that are pre-configured. You can also add other network settings to the `hardhat.config.js file`. Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) for information on specific networks.
-
-2. Generate a new account or add one to deploy the contract(s) from. Additionally you will need to add your Alchemy API key. Rename `.env.example` to `.env` and fill the required keys.
-
-```
-ALCHEMY_API_KEY="",
-DEPLOYER_PRIVATE_KEY=""
-```
-
-The deployer account is the account that will deploy your contracts and execute calls you make in your deployment script.
-
-You can generate a random account / private key with ```yarn generate``` or add the private key of your crypto wallet. ```yarn generate``` will create a random account and add the DEPLOYER_PRIVATE_KEY to the .env file. You can check the generated account with ```yarn account```.
-
-3. Deploy your smart contract(s)
-
-Run the command below to deploy the smart contract to the target network. Make sure to have some funds in your deployer account to pay for the transaction.
-
-```
-yarn deploy --network network_name
-```
-
-## Contributing to Scaffold-Eth 2
-
-We welcome contributions to Scaffold-Eth 2!
-
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/se-2/blob/master/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-Eth 2.
 
