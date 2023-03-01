@@ -1,8 +1,0 @@
-{
-  "functions": {
-    "api/transfer": {
-      "memory": 512,
-      "maxDuration": 10
-    }
-  }
-}
