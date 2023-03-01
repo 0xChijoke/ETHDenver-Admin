@@ -29,14 +29,10 @@ function Balance() {
           paidTotal: vendorData.paidTotal,
         });
       });
-      const totalPaid = vendors.reduce((acc, cur) => acc + cur.paidTotal, 0);
-      setTotalValuePaid(totalPaid);
-      console.log(totalPaid);
-
       const transactions: Transaction[] = [];
 
-      // let paidTotal = 0;
-      // let unpaidTotal = 0;
+      let paidTotal = 0;
+      let unpaidTotal = 0;
       let totalOrders = 0;
 
       const transactionSnapshot = await db.collection("transactions").get();
@@ -53,7 +49,9 @@ function Balance() {
         transactions.push(transaction);
         totalOrders++;
       });
+      setTotalValuePaid(paidTotal);
       setTotalVendorOrders(totalOrders);
+      console.log(unpaidTotal);
     } catch (err) {
       console.error(err);
     }
