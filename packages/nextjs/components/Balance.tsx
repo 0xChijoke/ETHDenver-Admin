@@ -36,7 +36,7 @@ function Balance() {
       let totalOrders = 0;
 
       const transactionSnapshot = await db.collection("transactions").get();
-      transactionSnapshot.forEach((doc: firebase.firestore.DocumentSnapshot<Transaction>) => {
+      transactionSnapshot.forEach(doc => {
         const transaction = doc.data() as Transaction;
 
         // Calculate the paid and unpaid amounts for the transaction
