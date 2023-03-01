@@ -1,6 +1,6 @@
 import { FunctionFragment } from "ethers/lib/utils";
 // ToDo. Handle when this doesn't exist?
-import ContractData from "~~/generated/hardhat_contracts.json";
+// import ContractData from "~~/generated/hardhat_contracts.json";
 import { Contract, utils } from "ethers";
 import DisplayVariable from "~~/components/scaffold-eth/Contract/DisplayVariables";
 import { ReadOnlyFunctionForm } from "./ReadOnlyFunctionForm";
@@ -25,10 +25,10 @@ const getDeployedContract = (
     return;
   }
 
-  const contractsAtChain = ContractData[chainId as keyof typeof ContractData];
-  const contractsData = contractsAtChain?.[0]?.contracts;
+  // const contractsAtChain = ContractData[chainId as keyof typeof ContractData];
+  // const contractsData = contractsAtChain?.[0]?.contracts;
 
-  return contractsData?.[contractName as keyof typeof contractsData];
+  // return contractsData?.[contractName as keyof typeof contractsData];
 };
 
 /**
