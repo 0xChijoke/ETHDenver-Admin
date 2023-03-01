@@ -67,7 +67,7 @@ const VendorAddresses = () => {
       let unpaidTotal = 0;
       let totalOrders = 0;
 
-      transactionSnapshot.forEach((doc: firebase.firestore.DocumentSnapshot<Transaction>) => {
+      transactionSnapshot.forEach(doc => {
         const transaction = doc.data() as Transaction;
 
         // Calculate the paid and unpaid amounts for the transaction
